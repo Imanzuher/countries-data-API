@@ -9,7 +9,7 @@ module.exports = {
         "text-dark-blue": "hsl(200, 15%, 8%)",
         "dark-gray": "hsl(0, 0%, 52%)",
         "light-gray": "hsl(0, 0%, 98%)",
-        "text-white": "hsl(0, 0%, 100%)",
+        "el-white": "hsl(0, 0%, 100%)",
       },
       fontFamily: {
         nunito: ["nunito", "sans"],
