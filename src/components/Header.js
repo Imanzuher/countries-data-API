@@ -2,20 +2,15 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-function Header() {
-  const [toggle, setToggle] = useState(false);
-
-  function handleMode() {
-    setToggle((toggle) => !toggle);
-  }
-  const dark =
-    "bg-mode-dark-blue flex justify-between py-5 px-20 font-nunito text-el-white shadow-md";
-  const light =
-    "bg-el-white flex justify-between py-5 px-20 font-nunito shadow-md";
-  const appClass = toggle ? dark : light;
+function Header({ toggle, handleMode }) {
   return (
-    <div className={appClass}>
+    <div
+      className={
+        toggle
+          ? "bg-mode-dark-blue flex justify-between py-5 px-20 font-nunito text-el-white shadow-md"
+          : "bg-el-white flex justify-between py-5 px-20 font-nunito shadow-md"
+      }
+    >
       <h1 className="text-2xl font-extrabold ">Where in the world?</h1>
       <button type="button" className="text-base" onClick={handleMode}>
         {toggle ? (
