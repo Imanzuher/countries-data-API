@@ -8,7 +8,7 @@ function Countries({ countries, toggle, handleMode, onSelect, onSearch }) {
     <div className={toggle ? "bg-bg-dark-blue" : "bg-light-gray"}>
       <Header toggle={toggle} handleMode={handleMode} />
       <Filter toggle={toggle} onSelect={onSelect} onSearch={onSearch} />
-      <div className="grid grid-cols-4 mx-auto gap-14 px-20">
+      <div className="grid grid-cols-4 mx-auto gap-14 px-20  mobile:grid-cols-1 mobile:px-6 mobile:mx-4">
         {countries.map((c) => {
           return (
             <div className="flex" key={c.name.official}>
