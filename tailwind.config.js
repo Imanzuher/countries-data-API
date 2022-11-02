@@ -11,12 +11,15 @@ module.exports = {
         "light-gray": "hsl(0, 0%, 98%)",
         "el-white": "hsl(0, 0%, 100%)",
       },
+      width: {
+        470: "470px",
+      },
       fontFamily: {
         nunito: ["nunito", "sans"],
       },
       screens: {
         mobile: { max: "375px" },
-        desktop: { min: "1440px" },
+        desktop: { max: "1440px" },
       },
     },
   },

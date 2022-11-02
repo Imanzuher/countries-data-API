@@ -7,7 +7,7 @@ function CountryCard({ name, flag, population, region, capital, toggle }) {
       className={
         toggle
           ? "w-64 cursor-pointer bg-mode-dark-blue rounded-lg border border-mode-dark-blue shadow-md text-el-white mobile:w-72"
-          : "w-64 cursor-pointer bg-light-gray rounded-lg border border-gray-200 shadow-md text-bg-dark-blue"
+          : "w-64 cursor-pointer bg-light-gray rounded-lg border border-gray-200 shadow-md text-bg-dark-blue mobile:w-72"
       }
     >
       <Link to={name}>

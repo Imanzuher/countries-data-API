@@ -16,7 +16,7 @@ function Countries({
     <div className={toggle ? "bg-bg-dark-blue" : "bg-light-gray"}>
       <Header toggle={toggle} handleMode={handleMode} />
       <Filter toggle={toggle} onSelect={onSelect} onSearch={onSearch} />
-      <div className="grid grid-cols-4 mx-auto gap-14 px-20  mobile:grid-cols-1 mobile:px-6 mobile:mx-4">
+      <div className="grid grid-cols-4 mx-auto gap-14 px-20  mobile:grid-cols-1 mobile:px-6 mobile:mx-4 desktop:pr-8">
         {isLoading && !error && (
           <h4 className="text-2xl font-bold"> Loading........</h4>
         )}

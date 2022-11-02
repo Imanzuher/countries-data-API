@@ -23,10 +23,12 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
     fetchData();
   }, [API_END_POINT]);
   return (
-    <div className={toggle ? " bg-bg-dark-blue text-el-white" : " bg-el-white"}>
+    <div
+      className={toggle ? " bg-bg-dark-blue  text-el-white" : " bg-el-white"}
+    >
       <Header toggle={toggle} handleMode={handleMode} />
 
-      <div className="mt-14 mx-52 pb-44 mobile:mx-8 font-nunito">
+      <div className="mt-14 mx-52 pb-96 mobile:mx-8 font-nunito">
         <div className="mb-14">
           <button
             className={
@@ -50,74 +52,76 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
         {error && !isLoading && { error }}
         {countries.map((c) => {
           return (
-            <div className="flex gap-4 mobile:flex-col">
-              <div className="w-1/2 mobile:w-full ">
+            <div className="flex gap-4 mobile:flex-col desktop:gap-20 ">
+              <div className="w-1/2 mobile:w-full  ">
                 {
                   <img
                     src={c.flags.png}
                     alt="the country flag"
-                    className="w-96 shadow-xl object-contain mb-5"
+                    className="w-96 desktop:w-470 shadow-xl object-contain mb-5 "
                   />
                 }
               </div>
 
-              <div className=" w-1/2 py-4 ">
-                <h1 className="text-xl mb-7 font-extrabold">
+              <div className=" w-1/2 py-4 mobile:w-full">
+                <h1 className="text-xl mb-7 font-extrabold desktop:text-3xl">
                   {c.name.official}
                 </h1>
-                <div className="grid grid-cols-2 mobile:grid-cols-1">
-                  <p className="text-sm  mb-3 ">
-                    <span className="font-bold"> Native Name: </span>
-                    <span
-                      className={toggle ? "text-gray-300" : "text-dark-gray"}
-                    >
-                      {Object.values(Object.values(c.name)[2])[0].official}
-                    </span>
-                  </p>
-                  <p className="text-sm  mb-3 ">
-                    <span className="font-bold">Population: </span>
-                    <span
-                      className={toggle ? "text-gray-300" : "text-dark-gray"}
-                    >
-                      {new Intl.NumberFormat().format(c.population)}
-                    </span>
-                  </p>
+                <div className="grid grid-cols-2 mobile:grid-cols-1 desktop:gap-14">
+                  <div>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold "> Native Name: </span>
+                      <span
+                        className={toggle ? "text-gray-300" : "text-dark-gray"}
+                      >
+                        {Object.values(Object.values(c.name)[2])[0].official}
+                      </span>
+                    </p>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Population: </span>
+                      <span
+                        className={toggle ? "text-gray-300" : "text-dark-gray"}
+                      >
+                        {new Intl.NumberFormat().format(c.population)}
+                      </span>
+                    </p>
 
-                  <p className="text-sm font-normal mb-3">
-                    <span className="font-bold">Region: </span>
-                    <span
-                      className={toggle ? "text-gray-300" : "text-dark-gray"}
-                    >
-                      {c.region}
-                    </span>
-                  </p>
-                  <p className="text-sm font-normal mb-3">
-                    <span className="font-bold">Sub Region: </span>
-                    <span
-                      className={toggle ? "text-gray-300" : "text-dark-gray"}
-                    >
-                      {c.subregion}
-                    </span>
-                  </p>
-                  <p className="text-sm font-normal mb-3">
-                    <span className="font-bold">Capital: </span>
-                    <span
-                      className={toggle ? "text-gray-300" : "text-dark-gray"}
-                    >
-                      {c.capital || "No Capital"}
-                    </span>
-                  </p>
-                  <div className="mobile:mt-8">
-                    <p className="text-sm font-normal mb-3">
-                      <span className="font-bold">Top Level Domain: </span>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Region: </span>
+                      <span
+                        className={toggle ? "text-gray-300" : "text-dark-gray"}
+                      >
+                        {c.region}
+                      </span>
+                    </p>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Sub Region: </span>
+                      <span
+                        className={toggle ? "text-gray-300" : "text-dark-gray"}
+                      >
+                        {c.subregion}
+                      </span>
+                    </p>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Capital: </span>
+                      <span
+                        className={toggle ? "text-gray-300" : "text-dark-gray"}
+                      >
+                        {c.capital || "No Capital"}
+                      </span>
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Top Level Domain: </span>
                       <span
                         className={toggle ? "text-gray-300" : "text-dark-gray"}
                       >
                         {c.tld}
                       </span>
                     </p>
-                    <p className="text-sm font-normal mb-3">
-                      <span className="font-bold">Currencies: </span>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Currencies: </span>
                       <span
                         className={toggle ? "text-gray-300" : "text-dark-gray"}
                       >
@@ -125,8 +129,8 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
                         {Object.values(Object.values(c.currencies)[0])[0]}
                       </span>
                     </p>
-                    <p className="text-sm font-normal mb-3">
-                      <span className="font-bold">Languages: </span>
+                    <p className="text-sm font-normal mb-3 desktop:text-base">
+                      <span className="font-bold ">Languages: </span>
                       <span
                         className={toggle ? "text-gray-300" : "text-dark-gray"}
                       >

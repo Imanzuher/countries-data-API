@@ -17,8 +17,8 @@ function Filter({ toggle, onSelect, onSearchChange, search }) {
         <input
           class={
             toggle
-              ? "appearance-none shadow-sm  w-full bg-mode-dark-blue text-el-white border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none mobile:w-80 mobile:border-none"
-              : "appearance-none shadow-sm w-full bg-el-white text-dark-gray border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none mobile:w-80 mobile:border-none "
+              ? "appearance-none shadow-sm  w-full bg-mode-dark-blue text-el-white border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none mobile:w-80 mobile:border-none desktop:border-none"
+              : "appearance-none shadow-sm w-full bg-el-white text-dark-gray border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none mobile:w-80 mobile:border-none desktop:border-none "
           }
           id="grid-first-name"
           type="text"
@@ -31,8 +31,8 @@ function Filter({ toggle, onSelect, onSearchChange, search }) {
         <select
           class={
             toggle
-              ? "appearance-none w-full bg-mode-dark-blue border text-el-white  hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline mobile:text-sm mobile:border-none"
-              : "appearance-none w-full bg-el-white border text-dark-gray  hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline mobile:text-sm mobile:border-none"
+              ? "appearance-none w-full bg-mode-dark-blue border text-el-white  hover:border-gray-500 px-4 py-3  rounded shadow leading-tight focus:outline-none focus:shadow-outline mobile:text-sm mobile:border-none desktop:border-none"
+              : "appearance-none w-full bg-el-white border text-dark-gray  hover:border-gray-500 px-4 py-3  rounded shadow leading-tight focus:outline-none focus:shadow-outline mobile:text-sm mobile:border-none desktop:border-none"
           }
           onChange={selectHandler}
         >
