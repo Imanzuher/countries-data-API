@@ -11,7 +11,7 @@ function Header({ toggle, handleMode }) {
       className={
         toggle
           ? "bg-mode-dark-blue flex justify-between py-5 px-20 font-nunito text-el-white shadow-md mobile:py-5 mobile:px-6"
-          : "bg-el-white flex justify-between py-5 px-20 font-nunito shadow-md mobile:py-5 mobile:px-6"
+          : "bg-el-white flex justify-between py-5 px-20 font-nunito shadow-md mobile:py-5 mobile:px-6 "
       }
     >
       <h1

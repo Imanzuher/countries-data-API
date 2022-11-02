@@ -28,12 +28,12 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
     >
       <Header toggle={toggle} handleMode={handleMode} />
 
-      <div className="mt-14 mx-52 pb-96 mobile:mx-8 font-nunito">
+      <div className="mt-14 mx-52 pb-96 mobile:mx-8 font-nunito ">
         <div className="mb-14">
           <button
             className={
               toggle
-                ? "flex items-center py-1 px-7 mobile:px-5 mobile:text-sm bg-mode-dark-blue rounded-md  border-2 hover:shadow-lg text-el-white"
+                ? "flex items-center py-1 px-7 mobile:px-5 mobile:text-sm bg-mode-dark-blue rounded-md  border-mode-dark-blue hover:shadow-lg text-el-white"
                 : "flex items-center py-1 px-7 mobile:px-5 mobile:text-sm bg-light-gray rounded-md  border-2 hover:shadow-lg text-text-dark-blue"
             }
             onClick={() => navigate("/")}
@@ -138,8 +138,28 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
                         {Object.values(c.languages)[0]}
                       </span>
                     </p>
-                    <p>{c.borders ? c.borders : ""}</p>
                   </div>
+                </div>{" "}
+                <div className="flex  ">
+                  <span className="font-semibold "> Border Countries:</span>
+                  {c.borders ? (
+                    c.borders.map((b) => {
+                      return (
+                        <div
+                          onClick={() => navigate("/")}
+                          className={
+                            toggle
+                              ? "ml-4 px-2 py-0.5 shadow-md bg-mode-dark-blue border-mode-dark-blue rounded-md cursor-pointer text-sm "
+                              : "ml-4 px-2 py-0.5 shadow-md border-dark-gray bg-light-gray cursor-pointer rounded-md text-sm "
+                          }
+                        >
+                          {b}
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div>no borders...</div>
+                  )}
                 </div>
               </div>
             </div>
