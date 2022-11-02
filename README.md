@@ -14,3 +14,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+## Features
+- User friendly UI
+- Searching for countries by typing country name
+- Filtering countries based on their region
+- Country information detail
+- Switching between dark and light mode
+
+## API used
+- https://restcountries.com/v3.1/all
