@@ -1,10 +1,11 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import Header from "./Header";
-function CountryDetail({ toggle, handleMode }) {
+function CountryDetail({ toggle, handleMode, isLoading, error }) {
+  const navigate = useNavigate();
   const { name } = useParams();
   const [countries, setCountries] = useState([]);
   const API_END_POINT = `https://restcountries.com/v3.1/name/${name}`;
@@ -33,16 +34,20 @@ function CountryDetail({ toggle, handleMode }) {
                 ? "flex items-center py-1 px-7 mobile:px-5 mobile:text-sm bg-mode-dark-blue rounded-md  border-2 hover:shadow-lg text-el-white"
                 : "flex items-center py-1 px-7 mobile:px-5 mobile:text-sm bg-light-gray rounded-md  border-2 hover:shadow-lg text-text-dark-blue"
             }
+            onClick={() => navigate("/")}
           >
-            <Link to="/">
-              <FontAwesomeIcon
-                icon={faArrowLeft}
-                className="w-4 h-4 mr-2 mobile:w-3 mobile:h-3"
-              />
-              Back
-            </Link>
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              className="w-4 h-4 mr-2 mobile:w-3 mobile:h-3"
+            />
+            Back
           </button>
         </div>
+
+        {isLoading && !error && (
+          <h4 className="text-2xl font-bold">Loading........</h4>
+        )}
+        {error && !isLoading && { error }}
         {countries.map((c) => {
           return (
             <div className="flex gap-4 mobile:flex-col">

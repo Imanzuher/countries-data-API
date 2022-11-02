@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 function App() {
   const [countries, setCountries] = useState([]);
   const [toggle, setToggle] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const itemsToDisplay = countries.filter((c) => {
     if (search === "") {
@@ -31,8 +33,11 @@ function App() {
         const data = await res.json();
         setCountries(data);
         console.log(data);
+
+        setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        setIsLoading(false);
+        setError(error.message);
       }
     };
     fetchData();
@@ -48,8 +53,10 @@ function App() {
 
       const data = await res.json();
       setCountries(data);
+      setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      setIsLoading(false);
+      setError(error.message);
     }
   };
 
@@ -66,13 +73,22 @@ function App() {
               onSelect={getCountryByRegion}
               onSearchChange={handleSearch}
               search={search}
+              isLoading={isLoading}
+              error={error}
             />
           }
         />
 
         <Route
           path="/:name"
-          element={<CountryDetail toggle={toggle} handleMode={handleMode} />}
+          element={
+            <CountryDetail
+              toggle={toggle}
+              handleMode={handleMode}
+              isLoading={isLoading}
+              error={error}
+            />
+          }
         />
       </Routes>
     </div>
