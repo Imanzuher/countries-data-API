@@ -1,11 +1,6 @@
 import React from "react";
-import { useState } from "react";
-function Filter({ toggle, onSelect, onSearch }) {
-  const [search, setSearch] = useState("");
-  function onSearchHandler(e) {
-    e.preventDefault();
-    onSearch(search);
-  }
+
+function Filter({ toggle, onSelect, onSearchChange, search }) {
   function selectHandler(e) {
     console.log(e.target.value);
     onSelect(e.target.value);
@@ -19,20 +14,18 @@ function Filter({ toggle, onSelect, onSearch }) {
       }
     >
       <div className="w-96">
-        <form onSubmit={onSearchHandler}>
-          <input
-            class={
-              toggle
-                ? "appearance-none shadow-sm  w-full bg-mode-dark-blue text-el-white border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none"
-                : "appearance-none shadow-sm w-full bg-el-white text-dark-gray border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none "
-            }
-            id="grid-first-name"
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="&#xF002;    Search for a country...."
-          />
-        </form>
+        <input
+          class={
+            toggle
+              ? "appearance-none shadow-sm  w-full bg-mode-dark-blue text-el-white border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none"
+              : "appearance-none shadow-sm w-full bg-el-white text-dark-gray border focus:outline-offset-1 focus:outline-black rounded-md py-3 px-6  leading-tight focus:outline-none "
+          }
+          id="grid-first-name"
+          type="text"
+          value={search}
+          onChange={onSearchChange}
+          placeholder="&#xF002;    Search for a country...."
+        />
       </div>
       <div class="inline-block relative w-52">
         <select

@@ -30,8 +30,8 @@ function CountryDetail({ toggle, handleMode }) {
           <button
             className={
               toggle
-                ? "py-1 px-7 bg-mode-dark-blue rounded-md  border-2 hover:shadow-lg text-el-white"
-                : "py-1 px-7 bg-light-gray rounded-md  border-2 hover:shadow-lg text-text-dark-blue"
+                ? "flex items-center py-1 px-7 bg-mode-dark-blue rounded-md  border-2 hover:shadow-lg text-el-white"
+                : "flex items-center py-1 px-7 bg-light-gray rounded-md  border-2 hover:shadow-lg text-text-dark-blue"
             }
           >
             <Link to="/">
@@ -48,7 +48,7 @@ function CountryDetail({ toggle, handleMode }) {
                   <img
                     src={c.flags.png}
                     alt="the country flag"
-                    className="w-96"
+                    className="w-96 shadow-xl object-contain mb-5"
                   />
                 }
               </div>
@@ -61,7 +61,7 @@ function CountryDetail({ toggle, handleMode }) {
                     <span
                       className={toggle ? "text-gray-300" : "text-dark-gray"}
                     >
-                      {c.name.nativeName.eng.official}
+                      {Object.values(Object.values(c.name)[2])[0].official}
                     </span>
                   </p>
                   <p className="text-sm  mb-3 ">
@@ -94,7 +94,7 @@ function CountryDetail({ toggle, handleMode }) {
                     <span
                       className={toggle ? "text-gray-300" : "text-dark-gray"}
                     >
-                      {c.capital}
+                      {c.capital || "No Capital"}
                     </span>
                   </p>
                   <p className="text-sm font-normal mb-3">
@@ -111,7 +111,7 @@ function CountryDetail({ toggle, handleMode }) {
                       className={toggle ? "text-gray-300" : "text-dark-gray"}
                     >
                       {" "}
-                      {c.currencies.BBD.name}
+                      {Object.values(Object.values(c.currencies)[0])[0]}
                     </span>
                   </p>
                   <p className="text-sm font-normal mb-3">
@@ -120,7 +120,7 @@ function CountryDetail({ toggle, handleMode }) {
                       className={toggle ? "text-gray-300" : "text-dark-gray"}
                     >
                       {" "}
-                      {c.languages.eng}
+                      {Object.values(c.languages)[0]}
                     </span>
                   </p>
                 </div>

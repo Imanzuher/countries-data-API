@@ -8,7 +8,17 @@ import { useState, useEffect } from "react";
 function App() {
   const [countries, setCountries] = useState([]);
   const [toggle, setToggle] = useState(false);
-
+  const [search, setSearch] = useState("");
+  const itemsToDisplay = countries.filter((c) => {
+    if (search === "") {
+      return true;
+    } else if (c.name.common.toLowerCase().includes(search.toLowerCase())) {
+      return c;
+    }
+  });
+  function handleSearch(e) {
+    setSearch(e.target.value);
+  }
   function handleMode() {
     setToggle((toggle) => !toggle);
   }
@@ -42,18 +52,7 @@ function App() {
       console.log(error);
     }
   };
-  const getCountryByName = async (name) => {
-    try {
-      const res = await fetch(`https://restcountries.com/v3.1/name/${name}`);
 
-      if (!res.ok) throw new Error("Failed..........");
-
-      const data = await res.json();
-      setCountries(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <div>
       <Routes>
@@ -61,11 +60,12 @@ function App() {
           index
           element={
             <Countries
-              countries={countries}
+              countries={itemsToDisplay}
               toggle={toggle}
               handleMode={handleMode}
               onSelect={getCountryByRegion}
-              onSearch={getCountryByName}
+              onSearchChange={handleSearch}
+              search={search}
             />
           }
         />
