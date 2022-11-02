@@ -23,3 +23,6 @@ You may also see any lint errors in the console.
 
 ## API used
 - https://restcountries.com/v3.1/all
+
+## Live version
+- https://all-countries-project.netlify.app/
