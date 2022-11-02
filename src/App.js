@@ -3,27 +3,18 @@ import { Routes, Route } from "react-router-dom";
 import CountryDetail from "./components/CountryDetail";
 import Countries from "./components/Countries";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
-  const [search, setSearch] = useState("");
-  const itemsToDisplay = countries.filter((c) => {
-    if (search === "") {
-      return true;
-    } else if (c.name.common.toLowerCase().includes(search.toLowerCase())) {
-      return c;
-    }
-  });
-  function handleSearch(e) {
-    setSearch(e.target.value);
-  }
+  const countriesRef = useRef();
   function handleMode() {
     setToggle((toggle) => !toggle);
   }
+
   const API_END_POINT = `https://restcountries.com/v3.1/all`;
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +33,25 @@ function App() {
     };
     fetchData();
   }, [API_END_POINT]);
-
+  const searchCountries = () => {
+    const searchValue = countriesRef.current.value;
+    if (searchValue.trim()) {
+      const fetchSearch = async () => {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/name/${searchValue}`
+        );
+        const data = await res.json();
+        setCountries(data);
+      };
+      try {
+        fetchSearch();
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      return "error";
+    }
+  };
   const getCountryByRegion = async (region) => {
     try {
       const res = await fetch(
@@ -67,14 +76,14 @@ function App() {
           index
           element={
             <Countries
-              countries={itemsToDisplay}
+              countries={countries}
               toggle={toggle}
               handleMode={handleMode}
               onSelect={getCountryByRegion}
-              onSearchChange={handleSearch}
-              search={search}
               isLoading={isLoading}
               error={error}
+              countriesRef={countriesRef}
+              searchCountries={searchCountries}
             />
           }
         />

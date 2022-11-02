@@ -1,6 +1,6 @@
 import React from "react";
 
-function Filter({ toggle, onSelect, onSearchChange, search }) {
+function Filter({ toggle, onSelect, countriesRef, searchCountries }) {
   function selectHandler(e) {
     console.log(e.target.value);
     onSelect(e.target.value);
@@ -22,9 +22,9 @@ function Filter({ toggle, onSelect, onSearchChange, search }) {
           }
           id="grid-first-name"
           type="text"
-          value={search}
-          onChange={onSearchChange}
           placeholder="&#xF002;    Search for a country...."
+          ref={countriesRef}
+          onChange={searchCountries}
         />
       </div>
       <div class="inline-block relative w-52 mobile:w-44">

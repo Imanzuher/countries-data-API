@@ -138,6 +138,7 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
                         {Object.values(c.languages)[0]}
                       </span>
                     </p>
+                    <p>{c.borders ? c.borders : ""}</p>
                   </div>
                 </div>
               </div>
