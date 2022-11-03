@@ -9,8 +9,8 @@ function Filter({ toggle, onSelect, countriesRef, searchCountries }) {
     <div
       className={
         toggle
-          ? "flex justify-between px-20 py-12 bg-bg-dark-blue mobile:flex-col mobile:px-6 mobile:py-6 mobile:gap-10"
-          : "flex justify-between px-20 py-12 bg-light-gray mobile:flex-col mobile:px-6 mobile:py-6 mobile:gap-10"
+          ? "flex justify-between px-20 py-12 bg-bg-dark-blue mobile:flex-col mobile:px-6 mobile:py-6 mobile:gap-10 tablet_1:flex-col tablet_1:gap-5 tablet_1:px-9 tablet_2:px-8 tablet_2:gap-10 tablet_3:gap-10 tablet_3:px-8"
+          : "flex justify-between px-20 py-12 bg-light-gray mobile:flex-col mobile:px-6 mobile:py-6 mobile:gap-10 tablet_1:flex-col tablet_1:gap-5 tablet_1:px-9 tablet_2:px-8 tablet_2:gap-10 tablet_3:gap-10 tablet_3:px-8"
       }
     >
       <div className="w-96">

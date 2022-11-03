@@ -18,8 +18,11 @@ module.exports = {
         nunito: ["nunito", "sans"],
       },
       screens: {
-        mobile: { max: "375px" },
-        desktop: { max: "1440px" },
+        mobile: { min: "325px", max: "500px" },
+        tablet_1: { min: "501px", max: "600px" },
+        tablet_2: { min: "601px", max: "800px" },
+        tablet_3: { min: "801px", max: "1000px" },
+        desktop: { min: "1001px", max: "1440px" },
       },
     },
   },

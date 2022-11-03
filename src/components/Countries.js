@@ -26,7 +26,7 @@ function Countries({
         countriesRef={countriesRef}
         searchCountries={searchCountries}
       />
-      <div className="grid grid-cols-4 mx-auto gap-14 px-20  mobile:grid-cols-1 mobile:px-6 mobile:mx-4 desktop:pr-8 ">
+      <div className="grid grid-cols-4 gap-14 desktop:mx-auto desktop:gap-14 desktop:pr-14 desktop:px-5  mobile:grid-cols-1 mobile:px-6 mobile:mx-4  tablet_1:grid-cols-2 tablet_1:mx-auto tablet_1:pl-3 tablet_1:pr-8 tablet_2:grid-cols-2 tablet_2:px-12 tablet_3:grid-cols-3 tablet_3:gap-8 tablet_3:px-6 ">
         {isLoading && !error && (
           <h4 className="text-2xl font-bold"> Loading........</h4>
         )}

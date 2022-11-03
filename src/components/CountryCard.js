@@ -13,7 +13,7 @@ function CountryCard({ name, flag, population, region, capital, toggle, hi }) {
             style={
               fullname.toLowerCase() === hi.toLowerCase()
                 ? { color: "#FFD700" }
-                : { color: "black" }
+                : {}
             }
           >
             {fullname}
@@ -26,12 +26,16 @@ function CountryCard({ name, flag, population, region, capital, toggle, hi }) {
     <div
       className={
         toggle
-          ? "w-64 cursor-pointer bg-mode-dark-blue rounded-lg border border-mode-dark-blue shadow-md text-el-white mobile:w-72 hover:shadow-lg"
-          : "w-64 cursor-pointer bg-light-gray rounded-lg border border-gray-200 shadow-md text-bg-dark-blue mobile:w-72 hover:shadow-lg "
+          ? "w-64 tablet_1:w-56 tablet_3:w-56 cursor-pointer bg-mode-dark-blue rounded-lg border border-mode-dark-blue shadow-md text-el-white mobile:w-72 hover:shadow-lg"
+          : "w-64 tablet_1:w-56 tablet_3:w-56 cursor-pointer bg-light-gray rounded-lg border border-gray-200 shadow-md text-bg-dark-blue mobile:w-72 hover:shadow-lg "
       }
     >
       <Link to={name}>
-        <img src={flag} alt="country flag" className="rounded-t-lg h-40 w-64" />
+        <img
+          src={flag}
+          alt="country flag"
+          className="rounded-t-lg h-40 w-64 mobile:w-72"
+        />
       </Link>
       <div className="px-6  pb-8 w-60 ">
         {" "}
