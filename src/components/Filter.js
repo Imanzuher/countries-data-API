@@ -36,12 +36,22 @@ function Filter({ toggle, onSelect, countriesRef, searchCountries }) {
           }
           onChange={selectHandler}
         >
-          <option>Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="America">America</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
+          <option className="text-sm ">Filter by Region</option>
+          <option className="text-sm " value="Africa">
+            Africa
+          </option>
+          <option className="text-sm " value="America">
+            America
+          </option>
+          <option className="text-sm " value="Asia">
+            Asia
+          </option>
+          <option className="text-sm " value="Europe">
+            Europe
+          </option>
+          <option className="text-sm " value="Oceania">
+            Oceania
+          </option>
         </select>
         <div
           class={

@@ -11,6 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const countriesRef = useRef();
+  const [hi, setHi] = useState("");
   function handleMode() {
     setToggle((toggle) => !toggle);
   }
@@ -23,7 +24,7 @@ function App() {
         if (!res.ok) throw new Error("Failed..........");
         const data = await res.json();
         setCountries(data);
-        console.log(data);
+        // console.log(data);
 
         setIsLoading(false);
       } catch (error) {
@@ -33,14 +34,19 @@ function App() {
     };
     fetchData();
   }, [API_END_POINT]);
+
   const searchCountries = () => {
-    const searchValue = countriesRef.current.value;
+    let searchValue = countriesRef.current.value;
+    setHi(searchValue);
+    console.log(searchValue);
     if (searchValue.trim()) {
       const fetchSearch = async () => {
         const res = await fetch(
           `https://restcountries.com/v3.1/name/${searchValue}`
         );
+
         const data = await res.json();
+
         setCountries(data);
       };
       try {
@@ -52,6 +58,7 @@ function App() {
       return "error";
     }
   };
+
   const getCountryByRegion = async (region) => {
     try {
       const res = await fetch(
@@ -84,6 +91,7 @@ function App() {
               error={error}
               countriesRef={countriesRef}
               searchCountries={searchCountries}
+              hi={hi}
             />
           }
         />

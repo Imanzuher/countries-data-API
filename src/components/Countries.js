@@ -13,7 +13,9 @@ function Countries({
   error,
   countriesRef,
   searchCountries,
+  hi,
 }) {
+  console.log("hii:", hi);
   return (
     <div className={toggle ? "bg-bg-dark-blue " : "bg-light-gray "}>
       <Header toggle={toggle} handleMode={handleMode} />
@@ -40,6 +42,7 @@ function Countries({
                 population={c.population}
                 region={c.region}
                 capital={c.capital}
+                hi={hi}
               />{" "}
             </div>
           );
