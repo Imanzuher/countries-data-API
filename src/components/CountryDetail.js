@@ -28,7 +28,7 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
     >
       <Header toggle={toggle} handleMode={handleMode} />
 
-      <div className="mt-14 mx-52 pb-96 mobile:mx-8 font-nunito ">
+      <div className="mt-14 mx-52 pb-96 mobile:mx-8 font-nunito tablet_1:mx-8 tablet_2:mx-10 tablet_3:mx-20">
         <div className="mb-14">
           <button
             className={
@@ -52,18 +52,18 @@ function CountryDetail({ toggle, handleMode, isLoading, error }) {
         {error && !isLoading && { error }}
         {countries.map((c) => {
           return (
-            <div className="flex gap-4 mobile:flex-col desktop:gap-20 ">
-              <div className="w-1/2 mobile:w-full  ">
+            <div className="flex gap-4 mobile:flex-col desktop:gap-20 tablet_1:flex-col tablet_2:flex-col tablet_3:flex-col">
+              <div className="w-1/2 mobile:w-full  tablet_1:w-full tablet_3:w-full">
                 {
                   <img
                     src={c.flags.png}
                     alt="the country flag"
-                    className="w-96 desktop:w-470 shadow-xl object-contain mb-5 "
+                    className="w-96 desktop:w-470 shadow-xl object-contain mb-5 tablet_3:w-470"
                   />
                 }
               </div>
 
-              <div className=" w-1/2 py-4 mobile:w-full">
+              <div className=" w-1/2 py-4 mobile:w-full tablet_1:w-full tablet_2:w-full tablet_3:w-full">
                 <h1 className="text-xl mb-7 font-extrabold desktop:text-3xl">
                   {c.name.official}
                 </h1>
